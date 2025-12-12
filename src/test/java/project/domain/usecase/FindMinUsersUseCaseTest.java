@@ -14,19 +14,15 @@ class FindMinUsersUseCaseTest {
 
     @Test
     void execute_shouldReturnDataFromRepository() throws SQLException {
-        // 1. Arrange (Подготовка)
-        // Создаем фейковый репозиторий (мок), который не ходит в базу.
+        // Создаем фейковый репозиторий, который не ходит в базу
         CountryRepository mockRepository = new MockCountryRepository();
-        // Создаем UseCase и "подсовываем" ему наш фейковый репозиторий.
+        // Создаем UseCase и подсовываем ему наш фейковый репозиторий.
         FindMinUsersUseCase useCase = new FindMinUsersUseCase(mockRepository);
-
-        // 2. Act (Действие)
-        // Выполняем бизнес-логику. UseCase думает, что работает с реальной БД,
-        // но на самом деле он вызовет метод нашего мока.
+        // UseCase думает что работает с реальной БД
+        // но на самом деле он вызовет метод нашего фейка
         String result = useCase.execute();
 
-        // 3. Assert (Проверка)
-        // Проверяем, что UseCase просто вернул те данные, которые мы "запрограммировали" в моке.
+        // Проверяем, что UseCase просто вернул те данные, которые мы запрограммировали в моке
         assertEquals("Fake Country with Min Users", result);
     }
 
@@ -40,8 +36,7 @@ class FindMinUsersUseCaseTest {
 
         @Override
         public String findMinUsersInEasternEurope() {
-            // Возвращаем заранее известный, жестко заданный результат для теста.
-            // Это "ответ" нашего мока.
+            // Возвращаем заранее известный, заданный результат для теста
             return "Fake Country with Min Users";
         }
 

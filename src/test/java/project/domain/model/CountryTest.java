@@ -7,17 +7,16 @@ class CountryTest {
 
     @Test
     void constructorAndGetters_ShouldWorkCorrectly() {
-        // Arrange: Готовим тестовые данные.
+        // готовим тестовые данные
         String name = "Testland";
         String subregion = "Test Subregion";
         String region = "Test Region";
         long users = 100L;
         long population = 200L;
 
-        // Act: Создаем объект нашей сущности.
         Country country = new Country(name, subregion, region, users, population);
 
-        // Assert: Проверяем, что все геттеры возвращают правильные значения.
+        // проверяем что все геттеры возвращают правильные значения
         assertEquals(name, country.getName());
         assertEquals(subregion, country.getSubregion());
         assertEquals(region, country.getRegion());

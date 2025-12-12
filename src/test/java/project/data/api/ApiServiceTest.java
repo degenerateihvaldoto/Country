@@ -18,7 +18,6 @@ class ApiServiceTest {
 
     @Test
     void getCapital_WithInvalidCountry_ShouldReturnErrorString() {
-        // используем заведомо несуществующее название страны
         String invalidCountryName = "jdfvjdfvjndfvkjn";
 
         String response = ApiService.getCapital(invalidCountryName);
